@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helene Weber – Aufstieg durch Bildung</title>
+    <style>
+        /* Allgemeine Spiel-Hintergrund- und Schrift-Einstellungen */
+        body {
+            font-family: 'Georgia', serif; /* Klassische, etwas verspielte Schrift */
+            background-color: #3e2723; /* Dunkler Braunton (Holz-Effekt) */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="wood" patternUnits="userSpaceOnUse" width="100" height="100"><rect x="0" y="0" width="100" height="100" fill="%233e2723"/><line x1="0" y1="50" x2="100" y2="50" stroke="%234e342e" stroke-width="20"/><line x1="50" y1="0" x2="50" y2="100" stroke="%234e342e" stroke-width="10" stroke-dasharray="1 19"/></pattern></defs><rect width="100%" height="100%" fill="url(%23wood)"/></svg>');
+            color: #d7ccc8; /* Helle Textfarbe für dunklen Hintergrund */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #5d4037; /* Mittlerer Braunton für die Tafel/Konsole */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3); /* Tieferer Schatten */
+            max-width: 900px;
+            width: 100%;
+            border: 5px solid #ffcc80; /* Goldener/Bronze-Rahmen */
+        }
+
+        h1 {
+            color: #ffb74d; /* Leuchtender Goldton für die Hauptüberschrift */
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px double #ffcc80;
+            padding-bottom: 15px;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        h2 {
+            color: #ffcc80; /* Heller Goldton für Stationsüberschriften */
+            border-left: 5px solid #8B0000;
+            padding-left: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* --- Statusanzeige CSS (Quest-Log-Stil) --- */
+        .progress-container {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #4e342e; /* Dunklerer Ton für den Statuskasten */
+            border: 2px solid #ffcc80;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 25px;
+            margin-top: 5px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background-color: #28a745;
+            transition: width 0.5s ease-in-out;
+            text-align: center;
+            color: white;
+            line-height: 25px;
+            font-weight: bold;
+        }
+        /* -------------------------- */
+
+        .station {
+            display: none;
+            margin-bottom: 40px;
+            background-color: #4e342e;
+            border: 1px solid #ffcc80;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .station.active {
+            display: block;
+        }
+
+        .content-area {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .text-content {
+            flex: 2;
+            padding-right: 15px;
+        }
+
+        .image-container {
+            flex: 1;
+            max-width: 250px;
+            min-width: 150px;
+            border: 3px solid #ffcc80; /* Goldener Rahmen für Bilder */
+            padding: 5px;
+            background-color: #795548;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .image-container small {
+            color: #d7ccc8;
+        }
+
+        .question-area {
+            padding-top: 25px;
+            border-top: 2px dashed #795548;
+            margin-top: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 65%;
+            margin-right: 15px;
+            border: 2px solid #ffcc80;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #3e2723; /* Dunkle Eingabefläche */
+            color: #ffcc80; /* Goldene Eingabetextfarbe */
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #8B0000; /* Dunkelrot/Siegelrot */
+            color: white;
+            border: 2px solid #ffcc80;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #6a0000;
+            transform: translateY(-1px);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 8px;
+            font-weight: normal;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .feedback.success {
+            background-color: #1e4620; /* Dunkelgrün für Erfolg */
+            color: #c8e6c9;
+            border: 2px solid #81c784;
+            font-style: italic;
+        }
+
+        .feedback.error {
+            background-color: #5c1818;
+            color: #ffcdd2;
+            border: 2px solid #e57373;
+            font-style: normal;
+        }
+        
+        .feedback strong {
+            color: #ffcc80; /* Hervorhebung für "Richtig!" */
+        }
+
+        .next-button {
+            display: none;
+            margin-top: 25px;
+            text-align: right;
+        }
+
+        #end-screen {
+            text-align: center;
+            padding: 40px;
+            background-color: #4e342e;
+            border: 5px double #ffcc80;
+            border-radius: 10px;
+        }
+
+        #end-screen h2 {
+            color: #81c784; /* Grüner Erfolgstitel */
+            font-size: 2.5em;
+            text-shadow: 1px 1px 3px #000;
+        }
+        
+        #end-screen p strong {
+            font-size: 1.5em;
+            color: #ffb74d;
+            letter-spacing: 2px;
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Helene Weber – Aufstieg durch Bildung 📜</h1>
+
+    <div class="progress-container">
+        <div id="progress-text">Quest-Fortschritt: 0/5 Stationen gelöst</div>
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+        </div>
+    </div>
+    <div id="game-area">
+
+        <div id="station-1" class="station active">
+            <h2>Station 1: Die Kindheit – Der Schlüssel zur Zukunft 🗝️</h2>
+            <div class="content-area">
+                <div class="text-content">
+                    <p><strong>Szenario: Die Kindheit und der Anfang</strong></p>
+                    <p><strong>Zeitliche Einordnung:</strong> Ende des 19. Jahrhunderts, Elberfeld, 1881</p>
+                    <p>Helene Weber wächst in einem einfachen, aber bildungsnahen Elternhaus in Elberfeld auf. Ihre Eltern, trotz begrenzter finanzieller Mittel, legen großen Wert auf ihre Bildung, was Helene die Möglichkeit gibt, den engen gesellschaftlichen Rahmen, der Frauen damals oft auf ihre Rolle als Hausfrau und Mutter beschränkte, zu überwinden. Schon früh zeigt sie den Wunsch, sich durch Bildung eine andere Zukunft zu schaffen.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/250x200?text=Kindheit+Elberfeld" alt="Historisches Portrait von Helene Weber">
+                    <small>Helene Weber (1881–1962)</small>
+                </div>
+            </div>
+            <div class="question-area">
+                <label for="answer-1">Frage 1: Welchen Wert legte Webers Familie trotz der finanziellen Einschränkungen auf ihre Entwicklung? (Ein Wort)</label>
+                <input type="text" id="answer-1" placeholder="Lösungswort eingeben...">
+                <button onclick="checkAnswer(1, 'bildung', 'bildung', 'Du hast heute Zugang zu Bildung, eine Chance, die Helene Weber damals nicht in dieser Form hatte. Während sie in einer Zeit aufwuchs, in der Mädchen oft nicht einmal die Grundbildung bekamen, steht dir heute jede Tür offen. Denk darüber nach, wie viel du durch deine Bildung erreichen kannst, und wie viel Helene dafür gekämpft hat, dass auch du diese Chance hast.')">Quest-Ziel prüfen</button>
+                <div id="feedback-1" class="feedback"></div>
+                <div class="next-button" id="next-1">
+                    <button onclick="nextStation(2)">Nächste Station ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="station-2" class="station">
+            <h2>Station 2: Berufseinstieg – Durchbruch in der Männerdomäne 👩‍🏫</h2>
+            <div class="content-area">
+                <div class="text-content">
+                    <p><strong>Szenario: Der Einstieg in den Beruf</strong></p>
+                    <p><strong>Zeitliche Einordnung:</strong> 1897-1905, Aachen und Elberfeld</p>
+                    <p>Nach dem Besuch des Lehrerinnenbildungsseminars in Aachen arbeitet Helene als Volksschullehrerin in Elberfeld und Haaren bei Aachen. In einer Zeit, in der die Berufsausbildung für Frauen stark limitiert war, bricht sie mit den gesellschaftlichen Erwartungen und nimmt eine Position ein, die nur wenigen Frauen zugänglich war. Ihr Engagement als Lehrerin verschafft ihr nicht nur eine stabile Lebensgrundlage, sondern zeigt auch ihren Willen, Frauenbildung aktiv zu fördern.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/250x200?text=Lehrerinnenseminar" alt="Historisches Bild einer Lehrerin um 1900">
+                    <small>Berufstätige Frau um 1900</small>
+                </div>
+            </div>
+            <div class="question-area">
+                <label for="answer-2">Frage 2: Was tat Weber, indem sie eine Position als Lehrerin annahm, die vielen Frauen verwehrt blieb? (Ein Wort)</label>
+                <input type="text" id="answer-2" placeholder="Lösungswort eingeben...">
+                <button onclick="checkAnswer(2, 'brach', 'bruch', 'Heute sind dir als junge Frau viele berufliche Wege offen, die Webers Generation verwehrt waren. Du hast die Freiheit, deinen eigenen Weg zu wählen – sei es im Beruf, in der Politik oder im Bildungswesen. Diese Freiheit war nicht selbstverständlich. Überlege, wie viel Mut und Entschlossenheit Helene Weber aufgebracht hat, um die gleichen Rechte für Frauen zu ermöglichen, die du heute leben darfst.')">Quest-Ziel prüfen</button>
+                <div id="feedback-2" class="feedback"></div>
+                <div class="next-button" id="next-2">
+                    <button onclick="nextStation(3)">Nächste Station ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="station-3" class="station">
+            <h2>Station 3: Soziales Engagement – Verein für Gleichstellung ⚖️</h2>
+            <div class="content-area">
+                <div class="text-content">
+                    <p><strong>Szenario: Der politische Aufstieg und soziale Reformen</strong></p>
+                    <p><strong>Zeitliche Einordnung:</strong> 1916-1919, Köln und Düsseldorf</p>
+                    <p>Helene Weber gründet 1916 den Verein der katholischen Sozialbeamtinnen und wird 1919 als Kandidatin der Deutschen Zentrumspartei in die verfassunggebende Nationalversammlung gewählt. Sie setzt sich unermüdlich für die Rechte von Frauen und sozialen Reformen ein, wobei sie die patriarchalen Strukturen herausfordert, die Frauen in der Gesellschaft oft marginalisierten. Ihre politische Arbeit wird ein weiteres Beispiel dafür, wie Bildung und Engagement das Leben von Frauen verändern können.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/250x200?text=Zentrumspartei" alt="Bild der Nationalversammlung">
+                    <small>Helene Weber in der Politik</small>
+                </div>
+            </div>
+            <div class="question-area">
+                <label for="answer-3">Frage 3: Welches Wort beschreibt das Hauptziel des 1916 von Weber gegründeten Vereins für die berufstätigen Frauen? (Stichwort: Berufliche...)</label>
+                <input type="text" id="answer-3" placeholder="Lösungswort eingeben...">
+                <button onclick="checkAnswer(3, 'gleichstellung', 'gleichstellung', 'Auch heute kämpfen viele Frauen weltweit für Rechte, die dir selbstverständlich erscheinen. Die Freiheit, zu wählen, deinen Beruf zu wählen und deine Stimme zu erheben, ist ein Privileg, das nicht für alle Frauen selbstverständlich ist. Denk daran, wie viele Frauen, wie auch Helene Weber, sich für dich und deine Freiheit eingesetzt haben – und wie du diese Rechte heute nutzen kannst, um selbst etwas zu verändern.')">Quest-Ziel prüfen</button>
+                <div id="feedback-3" class="feedback"></div>
+                <div class="next-button" id="next-3">
+                    <button onclick="nextStation(4)">Nächste Station ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="station-4" class="station">
+            <h2>Station 4: Namensgeberin – Die Ehrung in Paderborn 🏆</h2>
+            <div class="content-area">
+                <div class="text-content">
+                    <p><strong>Szenario: Webers Vermächtnis in der Bildung</strong></p>
+                    <p><strong>Zeitliche Einordnung:</strong> 1983, Paderborn</p>
+                    <p>Das Berufskolleg in Paderborn wird 1983 nach Helene Weber benannt, um ihr Engagement für Frauenbildung, soziale Gerechtigkeit und Chancengleichheit zu ehren. Heute trägt die Schule Webers Vision weiter, indem sie soziale Bildung und die Förderung von Gleichberechtigung in den Mittelpunkt stellt. Ihr Leben erinnert uns daran, wie wichtig es ist, die Bildung als Mittel zu nutzen, um gesellschaftliche Barrieren zu überwinden.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/250x200?text=Berufskolleg" alt="Helene Weber Berufskolleg Paderborn">
+                    <small>Helene Weber Berufskolleg</small>
+                </div>
+            </div>
+            <div class="question-area">
+                <label for="answer-4">Frage 4: Welcher Schlüsselbegriff aus Webers Wirken wird durch die Benennung des Berufskollegs hervorgehoben? (Stichwort: Chanc...)</label>
+                <input type="text" id="answer-4" placeholder="Lösungswort eingeben...">
+                <button onclick="checkAnswer(4, 'chancengleichheit', 'chancengleichheit', 'Heute steht dir ein Bildungssystem offen, das es dir ermöglicht, dich zu entfalten und Chancen zu ergreifen, die Helene Weber nicht hatte. Sie hat den Weg für dich geebnet – und ihre Vision lebt in den Schulen und Institutionen weiter, die sich heute für Chancengleichheit einsetzen. Denk daran, wie du diese Möglichkeit nutzen kannst, um deinen eigenen Weg zu gehen und vielleicht eines Tages auch etwas zu bewirken.')">Quest-Ziel prüfen</button>
+                <div id="feedback-4" class="feedback"></div>
+                <div class="next-button" id="next-4">
+                    <button onclick="nextStation(5)">Nächste Station ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="station-5" class="station">
+            <h2>Station 5: Die Gegenwart – Ihr bleibender Einfluss 💡</h2>
+            <div class="content-area">
+                <div class="text-content">
+                    <p><strong>Szenario: Die Gegenwart und der Einfluss von Helene Weber</strong></p>
+                    <p><strong>Zeitliche Einordnung:</strong> Heute, Deutschland</p>
+                    <p>Helene Webers Erbe lebt weiter in Schulen und Institutionen, die sich für Bildungsgerechtigkeit und die Förderung von Frauenrechten einsetzen. Ihr Engagement hat nicht nur das Leben vieler Frauen im frühen 20. Jahrhundert verändert, sondern auch das Bildungssystem nachhaltig beeinflusst. Sie ist ein Symbol dafür, wie Bildung nicht nur individuelle Leben verändern kann, sondern auch die gesellschaftlichen Strukturen, die Frauen durch patriarchale Normen und Ungleichheit benachteiligen.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/250x200?text=Einfluss+Heute" alt="Modernes Bildungszentrum">
+                    <small>Helene Webers bleibendes Erbe</small>
+                </div>
+            </div>
+            <div class="question-area">
+                <label for="answer-5">Frage 5: Welcher Bereich im Bildungssystem wird durch Webers Erbe auch heute noch nachhaltig beeinflusst? (Beginnt mit B...)</label>
+                <input type="text" id="answer-5" placeholder="Lösungswort eingeben...">
+                <button onclick="checkAnswer(5, 'bildungsgerechtigkeit', 'bildungsgerechtigkeit', 'Die Freiheit und die Rechte, die du heute durch Bildung genießen darfst, sind ein Privileg, das Helene Weber erkämpft hat. Denk darüber nach, wie du diese Chancen nutzen kannst, um nicht nur deine Zukunft zu gestalten, sondern auch anderen zu helfen, ihre Chancen zu nutzen – genau wie Helene es für Frauen ihrer Zeit getan hat. Deine Bildung ist nicht nur ein Geschenk, sondern auch eine Verantwortung. Herzlichen Glückwunsch, Sie haben alle Stationen erfolgreich gelöst!')">Quest-Ziel prüfen</button>
+                <div id="feedback-5" class="feedback"></div>
+                <div class="next-button" id="next-5">
+                    <button onclick="endGame()">Quest abschließen 🎉</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="end-screen" style="display: none;">
+            <h2>Quest erfolgreich beendet!</h2>
+            <p>Sie haben die entscheidenden Phasen in Helene Webers Leben kennengelernt, in denen sie Bildung als Machtinstrument für soziale Gerechtigkeit und Frauenrechte nutzte.</p>
+            <p>Ihr finaler Code für den Abschluss des Museumsbesuchs ist: <strong>CHANCEN</strong></p>
+            <button onclick="location.reload()">Neue Quest starten</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const stations = 5;
+    let currentStation = 1;
+    let solvedStations = 0;
+    const solved = [false, false, false, false, false]; // Array, um gelöste Fragen zu speichern
+
+    // Funktion zur Aktualisierung der Statusanzeige
+    function updateProgress() {
+        solvedStations = solved.filter(s => s).length;
+        const percentage = (solvedStations / stations) * 100;
+
+        document.getElementById('progress-text').innerText = `Quest-Fortschritt: ${solvedStations}/${stations} Stationen gelöst`;
+        const progressBarFill = document.getElementById('progress-fill');
+        progressBarFill.style.width = percentage + '%';
+        progressBarFill.innerText = solvedStations > 0 ? `${solvedStations}/5` : '';
+    }
+
+    /**
+     * Prüft die Antwort für die aktuelle Station.
+     * ÄNDERUNG: Die Funktion wurde so angepasst, dass sie IMMER den Erfolgspfad ausführt.
+     * @param {number} stationNum - Nummer der Station (1-basiert).
+     * @param {string} correct1 - (Ignoriert)
+     * @param {string} correct2 - (Ignoriert)
+     * @param {string} successText - Der Text des motivierenden Feedbacks.
+     */
+    function checkAnswer(stationNum, correct1, correct2, successText) {
+        const inputElement = document.getElementById(`answer-${stationNum}`);
+        const feedbackElement = document.getElementById(`feedback-${stationNum}`);
+        const nextButtonElement = document.getElementById(`next-${stationNum}`);
+        const buttonElement = document.querySelector(`#station-${stationNum} button:not(.next-button button)`);
+        
+        // Die Antwort wird ignoriert, da wir immer Erfolg ausgeben.
+        
+        // Erfolgs-Logik:
+        feedbackElement.className = 'feedback success';
+        feedbackElement.innerHTML = `<strong>Richtig!</strong> <br><br> ${successText}`; 
+        nextButtonElement.style.display = 'block';
+        inputElement.disabled = true;
+        buttonElement.disabled = true;
+        
+        // Status aktualisieren
+        if (!solved[stationNum - 1]) {
+            solved[stationNum - 1] = true;
+            updateProgress();
+        }
+
+        feedbackElement.style.display = 'block';
+    }
+
+    /**
+     * Wechselt zur nächsten Station.
+     * @param {number} nextNum - Nummer der nächsten Station.
+     */
+    function nextStation(nextNum) {
+        if (nextNum <= stations) {
+            document.getElementById(`station-${currentStation}`).classList.remove('active');
+            currentStation = nextNum;
+            document.getElementById(`station-${currentStation}`).classList.add('active');
+            window.scrollTo(0, 0); // Scrollt zum Seitenanfang
+        }
+    }
+
+    /**
+     * Zeigt den Endbildschirm an.
+     */
+    function endGame() {
+        document.getElementById(`station-${currentStation}`).style.display = 'none';
+        document.getElementById('end-screen').style.display = 'block';
+        document.querySelector('.progress-container').style.display = 'none'; // Fortschrittsanzeige ausblenden
+    }
+
+    // Initialisierung der Statusanzeige beim Laden
+    document.addEventListener('DOMContentLoaded', updateProgress);
+</script>
+
+</body>
+</html>
