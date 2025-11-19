@@ -234,7 +234,7 @@
     <h1>Helene Weber – Aufstieg durch Bildung 📜</h1>
 
     <div class="progress-container">
-        <div id="progress-text">Quest-Fortschritt: 0/5 Stationen gelöst</div>
+        <div id="progress-text">Quest-Fortschritt: 0/6 Stationen gelöst</div>
         <div class="progress-bar">
             <div id="progress-fill" class="progress-fill"></div>
         </div>
@@ -245,9 +245,9 @@
             <h2>Station 1: Die Kindheit – Der Schlüssel zur Zukunft 🗝️</h2>
             <div class="content-area">
                 <div class="text-content">
-                    <p><strong>Szenario: Die Kindheit und der Anfang</strong></p>
-                    <p><strong>Zeitliche Einordnung:</strong> Ende des 19. Jahrhunderts, Elberfeld, 1881</p>
-                    <p>Helene Weber wächst in einem einfachen, aber bildungsnahen Elternhaus in Elberfeld auf. Ihre Eltern, trotz begrenzter finanzieller Mittel, legen großen Wert auf ihre Bildung, was Helene die Möglichkeit gibt, den engen gesellschaftlichen Rahmen, der Frauen damals oft auf ihre Rolle als Hausfrau und Mutter beschränkte, zu überwinden. Schon früh zeigt sie den Wunsch, sich durch Bildung eine andere Zukunft zu schaffen.</p>
+                    <p>Szenario: Die Kindheit und der Anfang</p>
+                    <p>Zeitliche Einordnung: Ende des 19. Jahrhunderts, Elberfeld, 1881</p>
+                    <p>Helene Weber wird 1881 in Elberfeld geboren. Sie wächst in einfachen Verhältnissen auf, doch ihre Eltern legen großen Wert auf Bildung. So kann Helene zur Schule gehen und träumt schon früh davon, mehr zu erreichen, als es für Frauen ihrer Zeit üblich war. Schon früh zeigt sie den Wunsch, sich durch Bildung eine andere Zukunft zu schaffen.</p>
                 </div>
                 <div class="image-container">
                     <img src="https://via.placeholder.com/250x200?text=Kindheit+Elberfeld" alt="Historisches Portrait von Helene Weber">
@@ -255,9 +255,9 @@
                 </div>
             </div>
             <div class="question-area">
-                <label for="answer-1">Frage 1: Welchen Wert legte Webers Familie trotz der finanziellen Einschränkungen auf ihre Entwicklung? (Ein Wort)</label>
+                <label for="answer-1">Frage 1: Wodurch wollte Helene Weber die engen Grenzen ihrer Zeit überwinden? (Ein Wort)</label>
                 <input type="text" id="answer-1" placeholder="Lösungswort eingeben...">
-                <button onclick="checkAnswer(1, 'bildung', 'bildung', 'Du hast heute Zugang zu Bildung, eine Chance, die Helene Weber damals nicht in dieser Form hatte. Während sie in einer Zeit aufwuchs, in der Mädchen oft nicht einmal die Grundbildung bekamen, steht dir heute jede Tür offen. Denk darüber nach, wie viel du durch deine Bildung erreichen kannst, und wie viel Helene dafür gekämpft hat, dass auch du diese Chance hast.')">Quest-Ziel prüfen</button>
+                <button onclick="checkAnswer(1, 'bildung', 'bildung', 'Richtig! Bildung war der Schlüssel zu ihrer Karriere.')">Quest-Ziel prüfen</button>
                 <div id="feedback-1" class="feedback"></div>
                 <div class="next-button" id="next-1">
                     <button onclick="nextStation(2)">Nächste Station ➡️</button>
@@ -269,9 +269,13 @@
             <h2>Station 2: Berufseinstieg – Durchbruch in der Männerdomäne 👩‍🏫</h2>
             <div class="content-area">
                 <div class="text-content">
-                    <p><strong>Szenario: Der Einstieg in den Beruf</strong></p>
-                    <p><strong>Zeitliche Einordnung:</strong> 1897-1905, Aachen und Elberfeld</p>
-                    <p>Nach dem Besuch des Lehrerinnenbildungsseminars in Aachen arbeitet Helene als Volksschullehrerin in Elberfeld und Haaren bei Aachen. In einer Zeit, in der die Berufsausbildung für Frauen stark limitiert war, bricht sie mit den gesellschaftlichen Erwartungen und nimmt eine Position ein, die nur wenigen Frauen zugänglich war. Ihr Engagement als Lehrerin verschafft ihr nicht nur eine stabile Lebensgrundlage, sondern zeigt auch ihren Willen, Frauenbildung aktiv zu fördern.</p>
+                    <p>Szenario: Der Einstieg in den Beruf</p>
+                    <p>Zeitliche Einordnung: 1897-1905, Aachen und Elberfeld</p>
+                    <ul>
+                        <li>1897-1900: Besuch des Lehrerinnenbildungsseminars in Aachen</li>
+                        <li>1900-1905: Volksschullehrerin in Haaren bei Aachen und in Elberfeld</li>
+                    </ul>
+                    <p>In einer Zeit, in der die Berufsausbildung für Frauen stark limitiert war, brach sie mit den gesellschaftlichen Erwartungen. Ihr Engagement verschaffte ihr eine stabile Lebensgrundlage und zeigte ihren Willen, Frauenbildung aktiv zu fördern.</p>
                 </div>
                 <div class="image-container">
                     <img src="https://via.placeholder.com/250x200?text=Lehrerinnenseminar" alt="Historisches Bild einer Lehrerin um 1900">
@@ -279,9 +283,9 @@
                 </div>
             </div>
             <div class="question-area">
-                <label for="answer-2">Frage 2: Was tat Weber, indem sie eine Position als Lehrerin annahm, die vielen Frauen verwehrt blieb? (Ein Wort)</label>
+                <label for="answer-2">Frage 2: Welchen Beruf übte Helene Weber nach ihrer Ausbildung aus? (Ein Wort)</label>
                 <input type="text" id="answer-2" placeholder="Lösungswort eingeben...">
-                <button onclick="checkAnswer(2, 'brach', 'bruch', 'Heute sind dir als junge Frau viele berufliche Wege offen, die Webers Generation verwehrt waren. Du hast die Freiheit, deinen eigenen Weg zu wählen – sei es im Beruf, in der Politik oder im Bildungswesen. Diese Freiheit war nicht selbstverständlich. Überlege, wie viel Mut und Entschlossenheit Helene Weber aufgebracht hat, um die gleichen Rechte für Frauen zu ermöglichen, die du heute leben darfst.')">Quest-Ziel prüfen</button>
+                <button onclick="checkAnswer(2, 'lehrerin', 'volksschullehrerin', 'Korrekt! Als Lehrerin konnte sie selbst Einfluss auf die Bildung nehmen.')">Quest-Ziel prüfen</button>
                 <div id="feedback-2" class="feedback"></div>
                 <div class="next-button" id="next-2">
                     <button onclick="nextStation(3)">Nächste Station ➡️</button>
@@ -290,22 +294,22 @@
         </div>
 
         <div id="station-3" class="station">
-            <h2>Station 3: Soziales Engagement – Verein für Gleichstellung ⚖️</h2>
+            <h2>Station 3: Studium – Horizonte erweitern 🎓</h2>
             <div class="content-area">
                 <div class="text-content">
-                    <p><strong>Szenario: Der politische Aufstieg und soziale Reformen</strong></p>
-                    <p><strong>Zeitliche Einordnung:</strong> 1916-1919, Köln und Düsseldorf</p>
-                    <p>Helene Weber gründet 1916 den Verein der katholischen Sozialbeamtinnen und wird 1919 als Kandidatin der Deutschen Zentrumspartei in die verfassunggebende Nationalversammlung gewählt. Sie setzt sich unermüdlich für die Rechte von Frauen und sozialen Reformen ein, wobei sie die patriarchalen Strukturen herausfordert, die Frauen in der Gesellschaft oft marginalisierten. Ihre politische Arbeit wird ein weiteres Beispiel dafür, wie Bildung und Engagement das Leben von Frauen verändern können.</p>
+                    <p>Szenario: Studium</p>
+                    <p>Zeitliche Einordnung: 1905-1909, Bonn und Grenoble</p>
+                    <p>Sie studierte Geschichte, Philosophie, Romanistik und Sozialpolitik in Bonn und Grenoble (Frankreich). Sie war zudem Mitglied des Studentinnenvereins Hilaritas. Die Studienzeit prägte sie sehr für ihren weiteren Lebensweg und festigte ihren Wunsch nach akademischer und sozialer Beteiligung.</p>
                 </div>
                 <div class="image-container">
-                    <img src="https://via.placeholder.com/250x200?text=Zentrumspartei" alt="Bild der Nationalversammlung">
-                    <small>Helene Weber in der Politik</small>
+                    <img src="https://via.placeholder.com/250x200?text=Universitaet+Bonn" alt="Bild der Universität Bonn">
+                    <small>Universität Bonn (Anfang 20. Jhd.)</small>
                 </div>
             </div>
             <div class="question-area">
-                <label for="answer-3">Frage 3: Welches Wort beschreibt das Hauptziel des 1916 von Weber gegründeten Vereins für die berufstätigen Frauen? (Stichwort: Berufliche...)</label>
+                <label for="answer-3">Frage 3: In welchen Städten studierte Helene Weber?</label>
                 <input type="text" id="answer-3" placeholder="Lösungswort eingeben...">
-                <button onclick="checkAnswer(3, 'gleichstellung', 'gleichstellung', 'Auch heute kämpfen viele Frauen weltweit für Rechte, die dir selbstverständlich erscheinen. Die Freiheit, zu wählen, deinen Beruf zu wählen und deine Stimme zu erheben, ist ein Privileg, das nicht für alle Frauen selbstverständlich ist. Denk daran, wie viele Frauen, wie auch Helene Weber, sich für dich und deine Freiheit eingesetzt haben – und wie du diese Rechte heute nutzen kannst, um selbst etwas zu verändern.')">Quest-Ziel prüfen</button>
+                <button onclick="checkAnswer(3, 'bonn und grenoble', 'bonn grenoble', 'Richtig! Die Studienjahre in Deutschland und Frankreich waren entscheidend.')">Quest-Ziel prüfen</button>
                 <div id="feedback-3" class="feedback"></div>
                 <div class="next-button" id="next-3">
                     <button onclick="nextStation(4)">Nächste Station ➡️</button>
@@ -314,22 +318,22 @@
         </div>
 
         <div id="station-4" class="station">
-            <h2>Station 4: Namensgeberin – Die Ehrung in Paderborn 🏆</h2>
+            <h2>Station 4: Soziales Engagement – Verein für Gleichstellung ⚖️</h2>
             <div class="content-area">
                 <div class="text-content">
-                    <p><strong>Szenario: Webers Vermächtnis in der Bildung</strong></p>
-                    <p><strong>Zeitliche Einordnung:</strong> 1983, Paderborn</p>
-                    <p>Das Berufskolleg in Paderborn wird 1983 nach Helene Weber benannt, um ihr Engagement für Frauenbildung, soziale Gerechtigkeit und Chancengleichheit zu ehren. Heute trägt die Schule Webers Vision weiter, indem sie soziale Bildung und die Förderung von Gleichberechtigung in den Mittelpunkt stellt. Ihr Leben erinnert uns daran, wie wichtig es ist, die Bildung als Mittel zu nutzen, um gesellschaftliche Barrieren zu überwinden.</p>
+                    <p>Szenario: Der politische Aufstieg und soziale Reformen</p>
+                    <p>Zeitliche Einordnung: 1916-1919, Köln und Berlin</p>
+                    <p>Helene Weber gründet 1916 den Verein der katholischen Sozialbeamtinnen und wird 1919 für die Deutsche Zentrumspartei in die Nationalversammlung gewählt. Sie setzt sich immer wieder für Frauenrechte und soziale Veränderungen ein und kämpft gegen die Benachteiligung von Frauen. Ihre politische Arbeit zeigt, wie Bildung und Engagement das Leben von Frauen verändern können.</p>
                 </div>
                 <div class="image-container">
-                    <img src="https://via.placeholder.com/250x200?text=Berufskolleg" alt="Helene Weber Berufskolleg Paderborn">
-                    <small>Helene Weber Berufskolleg</small>
+                    <img src="https://via.placeholder.com/250x200?text=Zentrumspartei" alt="Bild der Nationalversammlung">
+                    <small>Helene Weber in der Politik</small>
                 </div>
             </div>
             <div class="question-area">
-                <label for="answer-4">Frage 4: Welcher Schlüsselbegriff aus Webers Wirken wird durch die Benennung des Berufskollegs hervorgehoben? (Stichwort: Chanc...)</label>
+                <label for="answer-4">Frage 4: Wofür kämpfte Helene Weber? (Ein Wort)</label>
                 <input type="text" id="answer-4" placeholder="Lösungswort eingeben...">
-                <button onclick="checkAnswer(4, 'chancengleichheit', 'chancengleichheit', 'Heute steht dir ein Bildungssystem offen, das es dir ermöglicht, dich zu entfalten und Chancen zu ergreifen, die Helene Weber nicht hatte. Sie hat den Weg für dich geebnet – und ihre Vision lebt in den Schulen und Institutionen weiter, die sich heute für Chancengleichheit einsetzen. Denk daran, wie du diese Möglichkeit nutzen kannst, um deinen eigenen Weg zu gehen und vielleicht eines Tages auch etwas zu bewirken.')">Quest-Ziel prüfen</button>
+                <button onclick="checkAnswer(4, 'gleichberechtigung', 'frauenrechte', 'Ausgezeichnet! Ihr Einsatz für die Frauenrechte prägte ihr gesamtes politisches Wirken.')">Quest-Ziel prüfen</button>
                 <div id="feedback-4" class="feedback"></div>
                 <div class="next-button" id="next-4">
                     <button onclick="nextStation(5)">Nächste Station ➡️</button>
@@ -338,12 +342,36 @@
         </div>
 
         <div id="station-5" class="station">
-            <h2>Station 5: Die Gegenwart – Ihr bleibender Einfluss 💡</h2>
+            <h2>Station 5: Namensgeberin – Die Ehrung in Paderborn 🏆</h2>
             <div class="content-area">
                 <div class="text-content">
-                    <p><strong>Szenario: Die Gegenwart und der Einfluss von Helene Weber</strong></p>
-                    <p><strong>Zeitliche Einordnung:</strong> Heute, Deutschland</p>
-                    <p>Helene Webers Erbe lebt weiter in Schulen und Institutionen, die sich für Bildungsgerechtigkeit und die Förderung von Frauenrechten einsetzen. Ihr Engagement hat nicht nur das Leben vieler Frauen im frühen 20. Jahrhundert verändert, sondern auch das Bildungssystem nachhaltig beeinflusst. Sie ist ein Symbol dafür, wie Bildung nicht nur individuelle Leben verändern kann, sondern auch die gesellschaftlichen Strukturen, die Frauen durch patriarchale Normen und Ungleichheit benachteiligen.</p>
+                    <p>Szenario: Webers Vermächtnis in der Bildung</p>
+                    <p>Zeitliche Einordnung: 1983, Paderborn</p>
+                    <p>Helene Weber kämpfte für soziale Gerechtigkeit, Frauenbildung und Demokratie: Werte, die das Berufskolleg prägen. Das Berufskolleg in Paderborn wurde 1983 nach ihr benannt, um ihr Engagement zu ehren. Die Schule fördert soziale Bildung und Chancengleichheit und verbindet so Webers Leben mit ihrem Leitbild.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/250x200?text=Berufskolleg" alt="Helene Weber Berufskolleg Paderborn">
+                    <small>Helene Weber Berufskolleg</small>
+                </div>
+            </div>
+            <div class="question-area">
+                <label for="answer-5">Frage 5: In welcher Stadt wurde 1983 ein Berufskolleg nach Helene Weber benannt? (Ein Wort)</label>
+                <input type="text" id="answer-5" placeholder="Lösungswort eingeben...">
+                <button onclick="checkAnswer(5, 'paderborn', 'paderborn', 'Sehr gut! In Paderborn lebt ihr Vermächtnis in der Bildung weiter.')">Quest-Ziel prüfen</button>
+                <div id="feedback-5" class="feedback"></div>
+                <div class="next-button" id="next-5">
+                    <button onclick="nextStation(6)">Nächste Station ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="station-6" class="station">
+            <h2>Station 6: Die Gegenwart – Ihr bleibender Einfluss 💡</h2>
+            <div class="content-area">
+                <div class="text-content">
+                    <p>Szenario: Die Gegenwart und der Einfluss von Helene Weber</p>
+                    <p>Zeitliche Einordnung: Heute, Deutschland</p>
+                    <p>Heute lebt Helene Webers Erbe in Schulen und Einrichtungen weiter, die sich für Bildungsgerechtigkeit und Frauenrechte einsetzen. Ihr Engagement hat das Leben vieler Frauen verändert und das Bildungssystem beeinflusst. Sie zeigt, dass Bildung nicht nur einzelnen Menschen hilft, sondern auch die Gesellschaft gerechter machen kann.</p>
                 </div>
                 <div class="image-container">
                     <img src="https://via.placeholder.com/250x200?text=Einfluss+Heute" alt="Modernes Bildungszentrum">
@@ -351,11 +379,11 @@
                 </div>
             </div>
             <div class="question-area">
-                <label for="answer-5">Frage 5: Welcher Bereich im Bildungssystem wird durch Webers Erbe auch heute noch nachhaltig beeinflusst? (Beginnt mit B...)</label>
-                <input type="text" id="answer-5" placeholder="Lösungswort eingeben...">
-                <button onclick="checkAnswer(5, 'bildungsgerechtigkeit', 'bildungsgerechtigkeit', 'Die Freiheit und die Rechte, die du heute durch Bildung genießen darfst, sind ein Privileg, das Helene Weber erkämpft hat. Denk darüber nach, wie du diese Chancen nutzen kannst, um nicht nur deine Zukunft zu gestalten, sondern auch anderen zu helfen, ihre Chancen zu nutzen – genau wie Helene es für Frauen ihrer Zeit getan hat. Deine Bildung ist nicht nur ein Geschenk, sondern auch eine Verantwortung. Herzlichen Glückwunsch, Sie haben alle Stationen erfolgreich gelöst!')">Quest-Ziel prüfen</button>
-                <div id="feedback-5" class="feedback"></div>
-                <div class="next-button" id="next-5">
+                <label for="answer-6">Frage 6: Heute beeinflusst ihr Engagement Schulen und Bildungseinrichtungen. Wer ist die Frau hinter diesem Erbe?</label>
+                <input type="text" id="answer-6" placeholder="Lösungswort eingeben...">
+                <button onclick="checkAnswer(6, 'helene weber', 'helene weber', 'Toll! Die Frau hinter dem Erbe, Helene Weber, hat Großes geleistet.')">Quest-Ziel prüfen</button>
+                <div id="feedback-6" class="feedback"></div>
+                <div class="next-button" id="next-6">
                     <button onclick="endGame()">Quest abschließen 🎉</button>
                 </div>
             </div>
@@ -363,8 +391,8 @@
 
         <div id="end-screen" style="display: none;">
             <h2>Quest erfolgreich beendet!</h2>
-            <p>Sie haben die entscheidenden Phasen in Helene Webers Leben kennengelernt, in denen sie Bildung als Machtinstrument für soziale Gerechtigkeit und Frauenrechte nutzte.</p>
-            <p>Ihr finaler Code für den Abschluss des Museumsbesuchs ist: <strong>CHANCEN</strong></p>
+            <p>Sie haben die wichtigsten Stationen in Helene Webers Leben kennengelernt und gesehen, wie sie Bildung genutzt hat, um für Gerechtigkeit und die Rechte von Frauen zu kämpfen.</p>
+            <p>Ihr finaler Code für den Abschluss des Museumsbesuchs ist: <strong>AUFSTIEG</strong></p>
             <button onclick="location.reload()">Neue Quest starten</button>
         </div>
 
@@ -372,10 +400,10 @@
 </div>
 
 <script>
-    const stations = 5;
+    const stations = 6;
     let currentStation = 1;
     let solvedStations = 0;
-    const solved = [false, false, false, false, false]; // Array, um gelöste Fragen zu speichern
+    const solved = [false, false, false, false, false, false];
 
     // Funktion zur Aktualisierung der Statusanzeige
     function updateProgress() {
@@ -385,15 +413,15 @@
         document.getElementById('progress-text').innerText = `Quest-Fortschritt: ${solvedStations}/${stations} Stationen gelöst`;
         const progressBarFill = document.getElementById('progress-fill');
         progressBarFill.style.width = percentage + '%';
-        progressBarFill.innerText = solvedStations > 0 ? `${solvedStations}/5` : '';
+        progressBarFill.innerText = solvedStations > 0 ? `${solvedStations}/6` : '';
     }
 
     /**
      * Prüft die Antwort für die aktuelle Station.
-     * ÄNDERUNG: Die Funktion wurde so angepasst, dass sie IMMER den Erfolgspfad ausführt.
+     * Logik wurde reaktiviert: Nur bei korrekter Antwort geht es weiter.
      * @param {number} stationNum - Nummer der Station (1-basiert).
-     * @param {string} correct1 - (Ignoriert)
-     * @param {string} correct2 - (Ignoriert)
+     * @param {string} correct1 - Die erste (primäre) korrekte Antwort (kleingeschrieben).
+     * @param {string} correct2 - Die zweite (alternative) korrekte Antwort (kleingeschrieben, z.B. ohne Umlaute/mit Leerzeichen).
      * @param {string} successText - Der Text des motivierenden Feedbacks.
      */
     function checkAnswer(stationNum, correct1, correct2, successText) {
@@ -402,21 +430,35 @@
         const nextButtonElement = document.getElementById(`next-${stationNum}`);
         const buttonElement = document.querySelector(`#station-${stationNum} button:not(.next-button button)`);
         
-        // Die Antwort wird ignoriert, da wir immer Erfolg ausgeben.
-        
-        // Erfolgs-Logik:
-        feedbackElement.className = 'feedback success';
-        feedbackElement.innerHTML = `<strong>Richtig!</strong> <br><br> ${successText}`; 
-        nextButtonElement.style.display = 'block';
-        inputElement.disabled = true;
-        buttonElement.disabled = true;
-        
-        // Status aktualisieren
-        if (!solved[stationNum - 1]) {
-            solved[stationNum - 1] = true;
-            updateProgress();
-        }
+        // Entfernt Leerzeichen am Anfang/Ende, wandelt in Kleinbuchstaben um
+        const answer = inputElement.value.trim().toLowerCase();
+        // Entfernt zusätzlich Leerzeichen zwischen Wörtern, um "bonn und grenoble" vs "bonnundgrenoble" zu prüfen
+        const normalizedAnswer = answer.replace(/\s/g, ''); 
+        // Entfernt Umlaute für die alternative Prüfung (falls nötig, obwohl hier nicht verwendet)
+        const simplifiedAnswer = normalizedAnswer.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 
+
+        // Reaktivierte Prüfungslogik
+        const isCorrect = answer === correct1 || answer === correct2 || normalizedAnswer === correct1.replace(/\s/g, '') || simplifiedAnswer === correct1.replace(/\s/g, '');
+
+        if (isCorrect) {
+            feedbackElement.className = 'feedback success';
+            feedbackElement.innerHTML = `<strong>Richtig!</strong> <br><br> ${successText}`; 
+            nextButtonElement.style.display = 'block';
+            inputElement.disabled = true;
+            buttonElement.disabled = true;
+            
+            // Status aktualisieren
+            if (!solved[stationNum - 1]) {
+                solved[stationNum - 1] = true;
+                updateProgress();
+            }
+
+        } else {
+            feedbackElement.className = 'feedback error';
+            feedbackElement.innerHTML = '<strong>Falsch!</strong> Das Ziel wurde verfehlt. Bitte überprüfen Sie den Text und das erfragte Stichwort.';
+            nextButtonElement.style.display = 'none';
+        }
         feedbackElement.style.display = 'block';
     }
 
